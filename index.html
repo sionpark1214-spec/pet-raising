@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>펫 키우기 🐾</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+      height:100%;
+      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:linear-gradient(180deg, #ffe29f 0%, #ffa99f 50%, #ff719a 100%);
+      overflow:hidden;
+    }
+    .center {
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      text-align:center;
+      user-select:none;
+    }
+    .pet {
+      font-size:90px;
+      animation:bounce 1.2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform:translateY(0) scale(1); }
+      50% { transform:translateY(-22px) scale(1.05); }
+    }
+    h1 { font-size:2.6rem; margin-top:18px; text-shadow:0 2px 8px rgba(0,0,0,0.2); }
+    p { margin-top:12px; opacity:0.95; font-size:1.1rem; }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div class="pet">🐶</div>
+    <h1>펫 키우기</h1>
+    <p>게임 시작!</p>
+  </div>
+</body>
+</html>
