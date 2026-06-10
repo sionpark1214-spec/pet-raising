@@ -379,14 +379,14 @@ doCare = function(care){
 function applyTime(){
   if(!S || !S.alive) return;
   const now=Date.now();
-  const dtMin=(now-S.lastTick)/60000; // 분
+  const dtHour=(now-S.lastTick)/3600000; // 시간
   S.lastTick=now;
-  // 만족도 자연 감소: 집 있으면 느리게
-  const rate = S.hasHouse ? 0.5 : 1.2; // 분당 감소
-  S.sat -= dtMin*rate;
+  // 만족도 자연 감소: 24시간당 20 (집 있으면 절반인 10)
+  const perDay = S.hasHouse ? 10 : 20;
+  S.sat -= dtHour * (perDay/24);
   if(S.sat<0) S.sat=0;
-  // 3일간 필수 케어(밥/놀기/씻기) 안 하면 죽음
-  if(now - S.lastVital > THREE_DAYS){ die('3일 동안 밥·샤워·놀아주기를 못 받았어요...'); return; }
+  // 72시간 동안 필수 케어(밥/샤워/놀기) 안 하면 죽음
+  if(now - S.lastVital >= THREE_DAYS){ die('72시간 동안 밥·샤워·놀아주기를 못 받았어요...'); return; }
   save();
 }
 function die(msg){
